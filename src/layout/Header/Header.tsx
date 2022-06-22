@@ -14,10 +14,11 @@ export const Header = (props: Props) => {
                justifyContent: "space-between",
                padding: "0 20px",
                position: "fixed",
-               width: "95%",
-               zIndex: 1201,
+               width: "100%",
+               zIndex: (theme) => theme.zIndex.drawer + 1,
                backgroundColor: "#fff",
-               borderBottom: "1px solid rgba(0, 0, 0, 0.12)"
+               borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
+               boxSizing: "border-box",
             }}
          >
             <div className="logo">
