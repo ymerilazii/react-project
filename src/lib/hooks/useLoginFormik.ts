@@ -23,7 +23,7 @@ interface UseLoginFormOptions {
 export const useLoginFormik = (props: UseLoginFormOptions) => {
   return useFormik({
     initialValues: {
-      username: "",
+      username: "test@gmail.com",
       password: "check-password",
     },
     //validateOnBlur: false,

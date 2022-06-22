@@ -1,10 +1,27 @@
-import React from "react";
-import logo from "./logo.svg";
+import { useState } from "react";
 import "./App.css";
+import { Home } from "./components/Home/Home";
 import { Login } from "./components/Login/Login";
 
 function App() {
-  return <Login />;
+  
+  const [user, setUser] = useState<string | null>(() => {
+    const value = localStorage.getItem("user");
+    return value;
+  });
+
+  const handleLogin = (username: string) => {
+    setUser(username);
+    localStorage.setItem("user", username);
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+    localStorage.removeItem("user");
+    window.location.reload();
+ };
+
+  return user !== null ? <Home user={user} onLogout={handleLogout} /> : <Login onLogin={handleLogin} />;
 }
 
 export default App;
