@@ -18,7 +18,6 @@ function App() {
   const handleLogout = () => {
     setUser(null);
     localStorage.removeItem("user");
-    window.location.reload();
  };
 
   return user !== null ? <Home user={user} onLogout={handleLogout} /> : <Login onLogin={handleLogin} />;
