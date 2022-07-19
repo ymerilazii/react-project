@@ -1,16 +1,18 @@
+import { Navigate } from "react-router-dom";
+import { useAuthContext } from "../../lib/context/AuthContext";
 import { useLoginFormik } from "../../lib/hooks/useLoginFormik";
 import { LoginForm } from "./LoginForm";
 
-interface Props {
-   onLogin: (username: string) => void;
-}
+export const Login = () => {
+   const { user, onLogin } = useAuthContext();
 
-export const Login = (props: Props) => {
    const formik = useLoginFormik({
       onSubmit(values, formikHelpers) {
-         props.onLogin(values.username);
+         onLogin(values.username);
       },
    });
+   
+   
 
    return (
       <div

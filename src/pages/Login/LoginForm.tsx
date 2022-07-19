@@ -1,4 +1,5 @@
 import { TextField, Button, Box } from "@mui/material";
+import { Link } from "react-router-dom";
 import { LoginFormik } from "../../lib/hooks/useLoginFormik";
 
 interface Props {
@@ -26,7 +27,9 @@ export const LoginForm = ({ formik }: Props) => {
                   sx={{ width: "100%" }}
                   onChange={formik.handleChange}
                   value={formik.values.username}
-                  error={Boolean(formik.errors.username && formik.touched.username)}
+                  error={Boolean(
+                     formik.errors.username && formik.touched.username
+                  )}
                />
                {formik.errors.username && formik.touched.username && (
                   <Box sx={{ color: "red", fontSize: "12px" }}>
@@ -43,8 +46,9 @@ export const LoginForm = ({ formik }: Props) => {
                   name="password"
                   value={formik.values.password}
                   autoComplete="current-password"
-                  error={Boolean(formik.errors.password && formik.touched.password)}
-
+                  error={Boolean(
+                     formik.errors.password && formik.touched.password
+                  )}
                />
                {formik.errors.password && formik.touched.password && (
                   <Box sx={{ color: "red", fontSize: "12px" }}>
@@ -55,6 +59,9 @@ export const LoginForm = ({ formik }: Props) => {
             <Button type="submit" variant="contained">
                Log in
             </Button>
+            <Link to="/register" color="secondary">
+               Register
+            </Link>
          </form>
       </>
    );

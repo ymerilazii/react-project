@@ -1,20 +1,20 @@
 import { Box, Toolbar } from "@mui/material";
+import { Navigate } from "react-router-dom";
 import { Header } from "../../layout/Header/Header";
 import { Sidebar } from "../../layout/Sidebar/Sidebar";
+import { useAuthContext } from "../../lib/context/AuthContext";
 
-interface Props {
-   user: string;
-   onLogout: () => void;
-}
+export const Home = () => {
+   const { user, onLogout } = useAuthContext();
 
-export const Home = ({ user, onLogout }: Props) => {
+   
    return (
       <Box
          sx={{
             display: "flex",
          }}
       >
-         <Header onLogOut={onLogout} />
+         <Header onLogOut={onLogout}/>
          <Sidebar />
          <Box
             component="main"
@@ -24,7 +24,7 @@ export const Home = ({ user, onLogout }: Props) => {
             }}
          >
             <Toolbar />
-            <h1>Welcome {user.split("@")[0]}!</h1>
+            <h1>Welcome {user?.split("@")[0]}!</h1>
          </Box>
       </Box>
    );

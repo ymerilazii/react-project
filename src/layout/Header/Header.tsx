@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 interface Props {
    onLogOut: () => void;
@@ -34,7 +35,7 @@ export const Header = (props: Props) => {
                   }}
                >
                   <li>My Movies</li>
-                  <li>My Profile</li>
+                  <NavLink to="/my-profile">My Profile</NavLink>
                   <li
                      onClick={props.onLogOut}
                      style={{
