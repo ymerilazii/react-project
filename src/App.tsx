@@ -1,10 +1,8 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { Login } from "./components/Login/Login";
+import { Routes } from "./lib/Routes";
 
 function App() {
-  return <Login />;
+   return <Routes />
 }
 
 export default App;
